@@ -7,9 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+
 import com.idbackend4.entity.idbackend4;
 import com.idbackend4.sevice.idbackend4service;
 
@@ -56,6 +61,38 @@ public class idbackend4controller {
 	}
 	return ResponseEntity.of(Optional.of(id1));
 		}
+	
 
+
+@PostMapping("/products")
+public ResponseEntity<idbackend4> addproducts(@RequestBody idbackend4 product)
+{idbackend4 p=null;
+	try {
+		p=this.idbackend4service1.addProducts(product);
+		return ResponseEntity.of(Optional.of(p));
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();	
+	}
+	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+}
+
+//delete
+@DeleteMapping("/products/{id}")
+public ResponseEntity<Void> deleteProduct(@PathVariable("id") String id)
+{
+try {
+	this.idbackend4service1.deleteProduct(id);;
+	return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}	
+catch(Exception e)
+{
+e.printStackTrace();
+return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+}
+}
+	
+	
 	}
 

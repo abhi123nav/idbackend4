@@ -56,5 +56,19 @@ public List<idbackend4> getAllCompany(String name){
 //	return id1;	
 //}
 
+//POST
+public idbackend4 addProducts(idbackend4 p)
+{
+	idbackend4 result=idbackend4repository.save(p);
+	return result;
+}
+
+
+//Delete
+public void deleteProduct(String id)
+{
+	this.idbackend4repository.deleteById(id);
+}
+
 }
 
