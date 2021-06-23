@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.bootrestproduct.entity.Products;
 import com.idbackend4.entity.idbackend4;
 import com.idbackend4.sevice.idbackend4service;
 
@@ -36,10 +36,18 @@ public class idbackend4controller {
 //		}
 
 	@GetMapping("/cnames")
-	public String getcnames()
+	public ResponseEntity<List<idbackend4>> getallcnames()
 	{
-		return "Its working";
-		}
+	List<idbackend4> products=(List<idbackend4>)this.idbackend4service1.getAllcnames();	
+	if(products.size()<=0)
+	{
+	return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
+	System.out.println("hello");
+	return ResponseEntity.status(HttpStatus.CREATED).body(products);	
+//		return ResponseEntity.of(Optional.of(products));
+
+	}
 
 
 	//@GetMapping("/cnames/{id}")
@@ -64,7 +72,7 @@ public class idbackend4controller {
 	
 
 
-@PostMapping("/products")
+@PostMapping("/cnames")
 public ResponseEntity<idbackend4> addproducts(@RequestBody idbackend4 product)
 {idbackend4 p=null;
 	try {
@@ -79,7 +87,7 @@ public ResponseEntity<idbackend4> addproducts(@RequestBody idbackend4 product)
 }
 
 //delete
-@DeleteMapping("/products/{id}")
+@DeleteMapping("/cnames/{id}")
 public ResponseEntity<Void> deleteProduct(@PathVariable("id") String id)
 {
 try {
