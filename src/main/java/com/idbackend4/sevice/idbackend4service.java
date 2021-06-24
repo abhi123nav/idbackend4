@@ -65,9 +65,9 @@ public idbackend4 addProducts(idbackend4 p)
 
 
 //Delete
-public void deleteProduct(String id)
+public void deleteProduct(String name)
 {
-	this.idbackend4repository.deleteById(id);
+	this.idbackend4repository.deleteByCname(name);
 }
 
 }

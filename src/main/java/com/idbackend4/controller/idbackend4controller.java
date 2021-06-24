@@ -87,11 +87,11 @@ public ResponseEntity<idbackend4> addproducts(@RequestBody idbackend4 product)
 }
 
 //delete
-@DeleteMapping("/cnames/{id}")
-public ResponseEntity<Void> deleteProduct(@PathVariable("id") String id)
+@DeleteMapping("/cnames/{name}")
+public ResponseEntity<Void> deleteProduct(@PathVariable("name") String name)
 {
 try {
-	this.idbackend4service1.deleteProduct(id);
+	this.idbackend4service1.deleteProduct(name);
 	return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}	
 catch(Exception e)

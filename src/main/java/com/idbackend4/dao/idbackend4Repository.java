@@ -12,4 +12,6 @@ public interface idbackend4Repository extends CrudRepository<idbackend4,String>{
 //	public Id1 findById(int id);
 	public List<idbackend4> findByCname(String name);
 
+	public void deleteByCname(String name);
+
 } 
