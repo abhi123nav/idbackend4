@@ -91,7 +91,7 @@ public ResponseEntity<idbackend4> addproducts(@RequestBody idbackend4 product)
 public ResponseEntity<Void> deleteProduct(@PathVariable("id") String id)
 {
 try {
-	this.idbackend4service1.deleteProduct(id);;
+	this.idbackend4service1.deleteProduct(id);
 	return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}	
 catch(Exception e)
