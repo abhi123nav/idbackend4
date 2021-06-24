@@ -88,7 +88,7 @@ public ResponseEntity<idbackend4> addproducts(@RequestBody idbackend4 product)
 
 //delete
 @DeleteMapping("/cnames/{name}")
-public ResponseEntity<Void> deleteProduct(@PathVariable("name") String name)
+public ResponseEntity<Void> deleteProduct(@PathVariable("name") Integer name)
 {
 try {
 	this.idbackend4service1.deleteProduct(name);
