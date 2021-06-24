@@ -65,10 +65,9 @@ public idbackend4 addProducts(idbackend4 p)
 
 
 //Delete
-public void deleteProduct(Iterable<? extends String> name)
+public void deleteProduct(Integer name)
 {
-	//this.idbackend4repository.deleteById(name);
-	this.idbackend4repository.deleteAllById(name);;
+	this.idbackend4repository.deleteById(name);
 }
 
 }
